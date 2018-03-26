@@ -1,0 +1,13 @@
+#/bin/bash
+
+# edit /etc/hosts file with puppet name
+sudo echo '172.31.80.227 puppet' >> /etc/hosts
+
+#download puppet labs collection repository
+curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
+sudo dpkg -i puppetlabs-release-pc1-xenial.deb
+sudo apt-get update
+
+sudo systemctl start puppetserver
+sudo systemctl status puppetserver
+
