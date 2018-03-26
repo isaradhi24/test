@@ -9,6 +9,6 @@ sudo dpkg -i /var/lib/jenkins/workspace/puppetinsall/puppetlabs-release-pc1-xeni
 sudo apt-get update
 sudo apt-get install puppetserver --assume-yes
 
-#sudo systemctl start puppetserver
-#sudo systemctl status puppetserver
+sudo systemctl start puppetserver
+sudo systemctl status puppetserver
 
