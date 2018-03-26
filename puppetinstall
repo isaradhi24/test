@@ -7,8 +7,21 @@
 #sudo curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
 sudo dpkg -i /var/lib/jenkins/workspace/puppetinsall/puppetlabs-release-pc1-xenial.deb
 sudo apt-get update
+
+#install puppet
 sudo apt-get install puppetserver --assume-yes
 
+#configurations
+
+#start Puppet Server, it will use port 8140 to communicate
+sudo ufw allow 8140
+
+#Configure memory allocation
+sudo sed -i 's/-Xms2g/-Xms3g/'  /etc/default/puppetserver
+sudo sed -i 's/-Xmx2g/-Xmx3g/'  /etc/default/puppetserver
+
+
+#Start Puppet server
 sudo systemctl start puppetserver
 sudo systemctl status puppetserver
 
